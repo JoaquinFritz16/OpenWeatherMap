@@ -12,10 +12,11 @@ else:
             data=response.json()
             data['hora actual']=time.strftime("%d/%m/%Y, %H:%M:%S")
             post.append(data)
+            data["title"]="Esto no puede estar pasando mi loco"
             print(f'El post {i} se ha obtenido con éxito')
             print(data)
-            with open(f'posts{i}.json', 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=4)
+            with open(f'posts{i}.json', 'w') as f:
+                json.dump(data, f)
         else:
             print(f'Error al obtener el post {i}')
         print('Todos los post se guardaron en posts.json')
